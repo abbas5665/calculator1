@@ -1,0 +1,33 @@
+name: Node.js CI
+
+on:
+  push:
+   branches:
+      - master
+      - devops-learning
+  pull_request:
+    branches:
+       - master
+
+
+jobs:
+ test:
+
+runs-on: ubuntu-latest
+
+steps:
+- name: checkout code
+uses: actions/chechout@v4
+
+- name: setup Node.js
+uses: actions/setup-node@v4
+with:
+node-version: 18
+
+- name: install dependencies
+run: npm install
+
+- name: Run tests
+run: npm test
+
+
