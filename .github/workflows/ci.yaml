@@ -17,17 +17,17 @@ runs-on: ubuntu-latest
 
 steps:
 - name: checkout code
-uses: actions/chechout@v4
+  uses: actions/checkout@v4
 
 - name: setup Node.js
-uses: actions/setup-node@v4
-with:
-node-version: 18
+  uses: actions/setup-node@v4
+  with:
+    node-version: 18
 
 - name: install dependencies
-run: npm install
+  run: npm install
 
 - name: Run tests
-run: npm test
+  run: npm test
 
 
