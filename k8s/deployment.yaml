@@ -25,6 +25,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: calculator-config
+            - secretRef:
+                name: calculator-secret
 
           resources:
             requests:
