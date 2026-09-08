@@ -3,20 +3,28 @@ kind: Deployment
 metadata:
   name: calculator
   namespace: dev
+
 spec:
   replicas: 3
+
   selector:
     matchLabels:
       app: calculator
+
   template:
     metadata:
       labels:
         app: calculator
+
     spec:
       containers:
         - name: calculator
           image: calculator-app:v1
           imagePullPolicy: Never
+
+          envFrom:
+            - configMapRef:
+                name: calculator-config
 
           resources:
             requests:
