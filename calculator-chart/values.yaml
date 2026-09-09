@@ -52,7 +52,7 @@
   #     headers:
   #     - name: 
   # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances c
+  # choice for the user. This also increases 
 replicaCount: 3
 
 image:
@@ -78,9 +78,9 @@ config:
   APP_NAME: "calculator"
 
 secret:
-  API_KEY: "123"
+  existingSecret: calculator-secret
 
 ingress:
-  enabled: true
+  enabled: false
   className: nginx
-  host: calculator.local
+  host: calculator-helm.local

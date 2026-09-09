@@ -1,19 +1,18 @@
 {{/*
-Expand the name of the chart.
+Chart name.
 */}}
 {{- define "calculator.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+calculator
 {{- end }}
 
 {{/*
-Create a default fully qualified app name.
+Fully qualified application name.
 */}}
 {{- define "calculator.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- $name := default .Chart.Name .Values.nameOverride }}
-{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" .Release.Name "calculator" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 {{- end }}
 

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.secret.existingSecret | quote }}
+  name: {{ include "calculator.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "calculator.labels" . | nindent 4 }}
@@ -34,7 +34,7 @@ spec:
             - name: API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "calculator.fullname" . }}-secret
+                  name: {{ .Values.secret.existingSecret | quote }}
                   key: API_KEY
 
           resources:
